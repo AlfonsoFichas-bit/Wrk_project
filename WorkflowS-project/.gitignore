@@ -1,0 +1,34 @@
+# Local
+.DS_Store
+*.local
+*.log*
+
+# Dist
+node_modules
+dist/
+
+# Profile
+.rspack-profile-*/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+.idx
+
+# Folder
+tests-results/
+
+/src/generated/prisma
+dev.db
+uploads/
+.qodo
+.env
+
+# Openspec
+.openspec/
+# openspec/
+.agent/
+.agents/
+.opencode/
+.augment/
