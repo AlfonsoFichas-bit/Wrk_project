@@ -196,7 +196,7 @@ export const registerAuthRoutes = (app: OpenAPIHono<AppEnv>): void => {
 					user?.password ?? DUMMY_PASSWORD_HASH,
 				);
 
-				if (!user || !user.active || !passwordMatch) {
+				if (!user?.active || !passwordMatch) {
 					return c.json({ error: "Email o contraseña incorrectos" }, 401);
 				}
 

@@ -52,7 +52,7 @@ export const authenticateToken: MiddlewareHandler<AppEnv> = async (c, next) => {
 			},
 		});
 
-		if (!user || !user.active || user.tokenVersion !== payload.v) {
+		if (!user?.active || user.tokenVersion !== payload.v) {
 			return unauthorizedResponse(c);
 		}
 
