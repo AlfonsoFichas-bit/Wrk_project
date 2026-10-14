@@ -1,4 +1,5 @@
 import { serve } from "@hono/node-server";
+import { mkdirSync, existsSync } from "node:fs";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { cors } from "hono/cors";
 import { secureHeaders } from "hono/secure-headers";
@@ -30,6 +31,11 @@ import { registerTaskRoutes } from "./routes/tasks.js";
 import { registerUserStoryRoutes } from "./routes/user-stories.js";
 import { registerUserRoutes } from "./routes/users.js";
 import type { AppEnv } from "./types.js";
+
+// Asegurar que existe el directorio de uploads en la raíz
+if (!existsSync("uploads")) {
+	mkdirSync("uploads");
+}
 
 export const createApp = (): OpenAPIHono<AppEnv> => {
 	const app = new OpenAPIHono<AppEnv>({
